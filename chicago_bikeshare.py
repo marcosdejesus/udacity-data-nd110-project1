@@ -133,6 +133,15 @@ input("Press Enter to continue...")
 # We expect to see "Male", "Female" or "Equal" as answer.
 def most_popular_gender(data_list):
     answer = ""
+    
+    male, female = count_gender(data_list)
+    if male == female:
+        answer = 'Equal'
+    elif male > female:
+        answer = 'Male'
+    else:
+        answer = 'Female'
+
     return answer
 
 
@@ -160,6 +169,9 @@ input("Press Enter to continue...")
 # TASK 7
 # TODO: Plot a similar graph for user_types. Make sure the legend is correct.
 print("\nTASK 7: Check the chart!")
+utype_list = column_to_list(data_list, -3)
+types = ['Subscriber','Customer']
+#counting the amount per type of customer
 
 
 input("Press Enter to continue...")
