@@ -172,7 +172,22 @@ print("\nTASK 7: Check the chart!")
 utype_list = column_to_list(data_list, -3)
 types = ['Subscriber','Customer']
 #counting the amount per type of customer
-
+subscriber = 0
+customer = 0
+for user_type in utype_list:
+    if user_type == 'Subscriber':
+        subscriber += 1
+    elif user_type == 'Customer':
+        customer += 1
+#Bulding the graphic
+#Position of the bars
+bars_pos = list(range(len(types)))
+plt.bar(bars_pos,[subscriber,customer])
+plt.ylabel('Quantity')
+plt.xlabel('User type')
+plt.xticks(bars_pos, types)
+plt.title('Quantity by User Type')
+plt.show(block=True)
 
 input("Press Enter to continue...")
 # TASK 8
@@ -180,7 +195,8 @@ input("Press Enter to continue...")
 male, female = count_gender(data_list)
 print("\nTASK 8: Why the following condition is False?")
 print("male + female == len(data_list):", male + female == len(data_list))
-answer = "Type your answer here."
+answer = ("This happens because some of the records do not have a gender "
+"declared")
 print("Answer:", answer)
 
 # ------------ DO NOT CHANGE ANY CODE HERE ------------
@@ -198,6 +214,20 @@ max_trip = 0.
 mean_trip = 0.
 median_trip = 0.
 
+list_size = len(trip_duration_list)
+trip_duration_list = [int(i) for i in trip_duration_list]
+ordered_trip_duration_list = sorted(trip_duration_list)
+min_trip = ordered_trip_duration_list[0]
+max_trip = ordered_trip_duration_list[-1]
+mean_trip = sum(ordered_trip_duration_list)/list_size
+#Calculation the median
+middle_list = list_size//2
+if list_size % 2 != 0:
+    median_trip = ordered_trip_duration_list[middle_list]
+else:
+    median_trip = (ordered_trip_duration_list[middle_list-1] +
+                   ordered_trip_duration_list[middle_list])/2
+
 
 print("\nTASK 9: Printing the min, max, mean and median")
 print("Min: ", min_trip, "Max: ", max_trip, "Mean: ", mean_trip, "Median: ", median_trip)
@@ -213,7 +243,7 @@ input("Press Enter to continue...")
 # TASK 10
 # Gender is easy because usually only have a few options. How about start_stations? How many options does it have?
 # TODO: Check types how many start_stations do we have using set()
-user_types = set()
+user_types = set(column_to_list(data_list,3))
 
 print("\nTASK 10: Printing start stations:")
 print(len(user_types))
