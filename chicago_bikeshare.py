@@ -56,6 +56,14 @@ input("Press Enter to continue...")
 # TASK 3
 # TODO: Create a function to add the columns(features) of a list in another list in the same order
 def column_to_list(data, index):
+    """
+    Extract the column of a list.
+    Args:
+        data(list): List of lists
+        index(int): Index of the column that has to be extracted
+    Returns:
+        List with the elements of the column
+    """
     column_list = []
     # Tip: You can use a for to iterate over the samples, get the feature by index and append into a list
     for line in data:
@@ -103,6 +111,14 @@ input("Press Enter to continue...")
 # TODO: Create a function to count the genders. Return a list
 # Should return a list with [count_male, counf_female] (e.g., [10, 15] means 10 Males, 15 Females)
 def count_gender(data_list):
+    """
+    Counts the amount of strings that have the value of 'Male' or 'Female' in a
+    list
+    Args:
+        data_list(list): List with the genders
+    Returns:
+        A list with the amount of Males and Females, respectively
+    """
     male = 0
     female = 0
 
@@ -132,6 +148,13 @@ input("Press Enter to continue...")
 # TODO: Create a function to get the most popular gender and print the gender as string.
 # We expect to see "Male", "Female" or "Equal" as answer.
 def most_popular_gender(data_list):
+    """
+    Function that returns the most popular gender in a list
+    Args:
+        data_list(list): List with the genders
+    Returns:
+        String with the most popular gender
+    """
     answer = ""
     
     male, female = count_gender(data_list)
