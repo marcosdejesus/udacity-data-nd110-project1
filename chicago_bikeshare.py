@@ -295,11 +295,29 @@ input("Press Enter to continue...")
 # TODO: Create a function to count user types without hardcoding the types
 # so we can use this function with a different kind of data.
 print("Will you face it?")
-answer = "no"
+answer = "yes"
 
 def count_items(column_list):
+    """
+    Counts the amount of each type of record in a list
+    Args:
+        column_list(list): List input
+    Returns:
+        List where the first element is list with the type of items in the list
+        and the second element is the amount of each item type, respectivily
+    """
     item_types = []
     count_items = []
+
+    item_types = list(set(column_list))
+    #Initializing count_items variable
+    count_items = [0 for i in item_types]
+
+    for item in column_list:
+        for index,item_type in enumerate(item_types):
+            if item == item_type:
+                count_items[index] += 1
+
     return item_types, count_items
 
 
